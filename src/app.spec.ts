@@ -34,3 +34,7 @@ describe('App', () => {
     it('should throw an exception when trying to move an unregistered bike', () => {
     })
 })
+
+function expect(longitude: number) {
+    throw new Error("Function not implemented.")
+}
