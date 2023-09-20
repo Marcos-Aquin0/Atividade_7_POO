@@ -34,25 +34,15 @@ describe('App', () => {
     it('should throw an exception when trying to move an unregistered bike', () => {
         const app = new App()
         const newYork = new Location(40.753056, -73.983056)
+        const location = new Location(0.0, 0.0)
         const bike = new Bike('caloi mountainbike', 'mountain bike',
-        1234, 1234, 100.0, 'My bike', 5, []);
+        1234, 1234, 100.0, 'My bike', 5, [], true, location, '756');
         const bikeId = '123';
-
-        // let error: Error | null = null;
-        // try {
-        //     app.moveBikeTo(bikeId, newYork);
-        // } catch (e) {
-        // error = e as Error;
-        // }
-
-        // if (error !== null) {
-        //     console.error(error);
-        // }
 
         const moveUnregisteredBike = () => {
             app.moveBikeTo(bikeId, newYork);
           };
-          expect.arguments(moveUnregisteredBike).toThrowError(`Bike ${bikeId} is not registered.`);
+          expect.arguments(moveUnregisteredBike).toThrowError(`Bike with ${bikeId} Id is not registered.`);
         });
 
 
